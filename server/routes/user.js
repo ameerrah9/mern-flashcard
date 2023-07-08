@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { createUser, getUser } = require('../controllers/userController');
+const auth = require('../utils/auth');
+const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 
-// @route   GET api/users
-
+// Create User
 router.route('/').post(createUser);
 
-router.route('/:id').get(getUser);
+// Current User information
+router.route('/').get(auth, getUser);
 
 module.exports = router;

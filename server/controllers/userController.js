@@ -15,7 +15,7 @@ const createUser = async (req, res, next) => {
   await result.save();
 
   // create token
-  const jwtDATA = { id: result._id, name: result.name };
+  const jwtDATA = { _id: result._id, name: result.name };
   const token = jwt.sign(jwtDATA, 'itsasecret', { expiresIn: 3600 });
 
   // return user
@@ -23,12 +23,8 @@ const createUser = async (req, res, next) => {
 };
 
 const getUser = async (req, res, next) => {
-  try {
-    const user = await User.findById(req.params.id);
-    res.status(200).setHeader('Content-Type', 'application/json').json(user);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+  const profile = await User.findById(req.user._id);
+  res.send(profile);
 };
 
 module.exports = {

@@ -1,20 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const User = require("../models/user");
+const { createUser, getUser } = require('../controllers/userController');
 
-// Register User
-router.post("/", async (req, res) => {
-    const { email, name, password } = req.body;
+// @route   GET api/users
 
-    // Checking User
-    let user = await User.findOne({ email });
-    if (user) return res.status(400).send("User already exists");
+router.route('/').post(createUser);
 
-    // Save User Into Database
-    user = new User({ email, name, password });
-    await user.save();
-
-    res.send(user);
-});
+router.route('/:id').get(getUser);
 
 module.exports = router;

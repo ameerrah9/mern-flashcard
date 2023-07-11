@@ -1,16 +1,29 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import "./Navbar.css";
+import './Navbar.css';
 
 const Navbar = () => {
-    return (
-        <nav className='navbar'>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/login'>Login</NavLink>
-            <NavLink to='/register'>Register</NavLink>
-        </nav>
-    );
+  const addFlashcard = () => {
+    console.log('Add flashcard');
+  };
+
+  return (
+    <>
+      <nav className='navbar'>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/login'>Login</NavLink>
+        <NavLink to='/register'>Register</NavLink>
+        <div className='container'>
+          <div className='add-flashcard-con'>
+            <button id='add-flashcard' onClick={addFlashcard}>
+              Add Flashcard
+            </button>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
 };
 
 export default Navbar;

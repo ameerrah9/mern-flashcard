@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 // import routes
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
+const flashcardRoutes = require('./routes/flashcard');
 
 // Body parser
 /* A middleware that parses the body of the request and makes it available in the req.body object. */
@@ -20,6 +21,7 @@ app.use(cors());
 // defining routes
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/flashcard', flashcardRoutes);
 
 app.use(logger);
 

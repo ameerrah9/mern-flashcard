@@ -23,8 +23,12 @@ const createUser = async (req, res, next) => {
 };
 
 const getUser = async (req, res, next) => {
-  const profile = await User.findById(req.user._id);
-  res.send(profile);
+  try {
+    const profile = await User.findById(req.user._id);
+    res.send(profile);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 };
 
 module.exports = {

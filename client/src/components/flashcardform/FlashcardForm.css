@@ -9,19 +9,27 @@
   top: 50%;
   left: 50%;
   border-radius: 0.5em;
-  background: #bcbcbc;
+  background-color: #bcbcbc;
   border: 1px solid black;
+  width: 90vw;
+  max-width: 34em;
+  text-align: center;
+  padding: 3em 2em;
 }
 
 .question-container h2 {
   font-size: 1.5em;
   text-align: center;
   color: #000000;
+  margin-bottom: 2em;
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 11fr 1fr;
   grid-gap: 1em;
-  margin: 1em 0;
+}
+
+.error-con {
+  align-self: center;
 }

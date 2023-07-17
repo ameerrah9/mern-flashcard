@@ -13,6 +13,31 @@ const FlashcardForm = () => {
         </div>
         <i class='fa fa-times' aria-hidden='true'></i>
       </div>
+      <form id='question-form'>
+        <div className='form-group'>
+          <label htmlFor='question'>Question</label>
+          <textarea
+            name='question'
+            className='input'
+            id='question'
+            placeholder='Enter question'
+            rows='3'
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='answer'>Answer</label>
+          <textarea
+            name='answer'
+            className='input'
+            id='answer'
+            placeholder='Enter answer'
+            rows='3'
+          />
+        </div>
+        <button type='submit' className='btn' id='save-btn'>
+          Save
+        </button>
+      </form>
     </div>
   );
 };

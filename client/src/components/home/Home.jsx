@@ -3,6 +3,7 @@ import FlashcardList from '../flashcardlist/FlashcardList';
 import FlashcardForm from '../flashcardform/FlashcardForm';
 
 const Home = () => {
+  const [flashcardData, setFlashcardData] = React.useState([]);
   const flashcards = [
     {
       id: 1,
@@ -18,9 +19,19 @@ const Home = () => {
     },
   ];
 
+  const addFlashcard = (flashcard) => {
+    console.log(flashcard);
+
+    const id = Math.floor(Math.random() * 10000) + 1;
+
+    const newFlashcard = { id, ...flashcard };
+
+    setFlashcards([...flashcards, newFlashcard]);
+  };
+
   return (
     <>
-      <FlashcardForm />
+      {/* <FlashcardForm addFlashcard={addFlashcard} /> */}
       <FlashcardList flashcards={flashcards} />
     </>
   );
